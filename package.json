@@ -41,13 +41,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/faranalytics/dialog.git"
+    "url": "git+https://github.com/adpatter/dialog.git"
   },
   "author": "FAR Analytics & Research",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/faranalytics/dialog/issues"
+    "url": "https://github.com/adpatter/dialog/issues"
   },
-  "homepage": "https://github.com/faranalytics/dialog#readme",
+  "homepage": "https://github.com/adpatter/dialog#readme",
   "type": "module"
 }
