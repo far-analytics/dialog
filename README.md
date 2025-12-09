@@ -972,6 +972,6 @@ There are a lot of great VoIP-Agent orchestration implementations out there. Thi
 
 ## Support
 
-If you have a feature request or run into any issues, feel free to submit an [issue](https://github.com/adpatter/dialog/issues) or start a [discussion](https://github.com/adpatter/dialog/discussions). You’re also welcome to reach out directly to one of the authors.
+For feature requests or issues, please open an [issue](https://github.com/adpatter/dialog/issues) or contact the authors.
 
 - [Adam Patterson](https://github.com/adpatter)
