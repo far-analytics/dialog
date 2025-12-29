@@ -19,8 +19,6 @@ Dialog adopts the STT–TTS model. It orchestrates communication between the VoI
 - Event-driven architecture
 - Isolated state — components exchange objects but never mutate objects held by other components
 
-**NB** Dialog is a well architected VoIP-Agent implementation; however, it is still undergoing active refactoring. Prior to 1.0.0, public interfaces may change on turns of minor versions and commit messages will be minimal.
-
 ## Table of contents
 
 - [Installation](#installation)
@@ -91,7 +89,7 @@ When a call is initiated, a `Gateway` (e.g., a Twilio Gateway) emits a `voip` ev
 
 An important characteristic of the architecture is that a _new_ instance (i.e., a `VoIP`, `STT`, `TTS`, and `Agent`) — is created for every call. This allows each instance to maintain state specific to its call.
 
-Excerpted from `src/main.ts`.
+Excerpted from `./examples/custom_twilio_voip_openai_agent/src/main.ts`.
 
 ```ts
 ...
@@ -100,11 +98,11 @@ const gateway = new TwilioGateway({
   webSocketServer,
   webhookURL: new URL(WEBHOOK_URL),
   authToken: TWILIO_AUTH_TOKEN,
-  accountSid: TWILIO_ACCOUNT_SID
+  accountSid: TWILIO_ACCOUNT_SID,
 });
 
 gateway.on("voip", (voip: TwilioVoIP) => {
-  const agent = new TwilioVoIPOpenAIAgent({
+  const agent = new TwilioCustomAgent({
     voip: voip,
     stt: new DeepgramSTT({ apiKey: DEEPGRAM_API_KEY, liveSchema: DEEPGRAM_LIVE_SCHEMA }),
     tts: new CartesiaTTS({ apiKey: CARTESIA_API_KEY, speechOptions: CARTESIA_SPEECH_OPTIONS }),
@@ -113,7 +111,7 @@ gateway.on("voip", (voip: TwilioVoIP) => {
     greeting: OPENAI_GREETING_MESSAGE,
     model: OPENAI_MODEL,
     twilioAccountSid: TWILIO_ACCOUNT_SID,
-    twilioAuthToken: TWILIO_AUTH_TOKEN
+    twilioAuthToken: TWILIO_AUTH_TOKEN,
   });
 
   agent.activate();
@@ -247,7 +245,7 @@ import {
   TwilioMetadata,
   TwilioVoIP,
   OpenAIConversationHistory,
-} from "@farar/dialog";
+} from "@far-analytics/dialog";
 
 export interface TwilioCustomAgentOptions extends OpenAIAgentOptions<TwilioVoIP> {
   twilioAccountSid: string;
@@ -353,7 +351,7 @@ A `Worker` is spun up for each call. VoIP events are propagated over a `MessageC
 
 In the excerpt below, a `TwilioVoIPWorker` is instantiated on each call.
 
-Excerpted from `./src/main.ts`.
+Excerpted from `./examples/custom_twilio_voip_openai_agent/src/main.ts`.
 
 ```ts
 const gateway = new TwilioGateway({
@@ -372,7 +370,7 @@ gateway.on("voip", (voip: TwilioVoIP) => {
 
 Over in `worker.js` the Agent is instantiated, as usual, except using a `TwilioVoIPProxy` instance that implements the `VoIP` interface.
 
-Excerpted from `./src/worker.ts`.
+Excerpted from `./examples/custom_twilio_voip_openai_agent/src/worker.ts`.
 
 ```ts
 const voip = new TwilioVoIPProxy();
