@@ -351,7 +351,7 @@ A `Worker` is spun up for each call. VoIP events are propagated over a `MessageC
 
 In the excerpt below, a `TwilioVoIPWorker` is instantiated on each call.
 
-Excerpted from `./examples/custom_twilio_voip_openai_agent/src/main.ts`.
+Excerpted from `./examples/twilio_voip_openai_agent_threading/src/main.ts`.
 
 ```ts
 const gateway = new TwilioGateway({
@@ -370,7 +370,7 @@ gateway.on("voip", (voip: TwilioVoIP) => {
 
 Over in `worker.js` the Agent is instantiated, as usual, except using a `TwilioVoIPProxy` instance that implements the `VoIP` interface.
 
-Excerpted from `./examples/custom_twilio_voip_openai_agent/src/worker.ts`.
+Excerpted from `./examples/twilio_voip_openai_agent_threading/src/worker.ts`.
 
 ```ts
 const voip = new TwilioVoIPProxy();
