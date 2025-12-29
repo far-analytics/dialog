@@ -2,7 +2,7 @@ import * as https from "node:https";
 import * as fs from "node:fs";
 import { once } from "node:events";
 import * as ws from "ws";
-import { TwilioGateway, DeepgramSTT, CartesiaTTS, log, SyslogLevel, TwilioVoIP } from "@farar/dialog";
+import { TwilioGateway, DeepgramSTT, CartesiaTTS, log, SyslogLevel, TwilioVoIP } from "@far-analytics/dialog";
 
 import { TwilioCustomAgent } from "./twilio_custom_agent.js";
 

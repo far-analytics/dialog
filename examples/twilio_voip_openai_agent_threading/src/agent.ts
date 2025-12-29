@@ -1,4 +1,4 @@
-import { log, Message, TwilioVoIPOpenAIAgent } from "@farar/dialog";
+import { log, Message, TwilioVoIPOpenAIAgent } from "@far-analytics/dialog";
 
 export class Agent extends TwilioVoIPOpenAIAgent {
   public inference = async (message: Message): Promise<void> => {

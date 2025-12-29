@@ -8,7 +8,7 @@ import {
   TwilioMetadata,
   TwilioVoIP,
   OpenAIConversationHistory,
-} from "@farar/dialog";
+} from "@far-analytics/dialog";
 
 export interface TwilioCustomAgentOptions extends OpenAIAgentOptions<TwilioVoIP> {
   twilioAccountSid: string;
