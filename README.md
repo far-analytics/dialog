@@ -76,7 +76,7 @@ npm run watch
 #### Change directory into your package directory and install the package.
 
 ```bash
-npm install <path-to-the-dialog-repository> --save
+npm install @far-analytics/dialog --save
 ```
 
 You should now be able to import Dialog artifacts into your package.
