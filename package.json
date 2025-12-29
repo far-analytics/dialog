@@ -19,7 +19,6 @@
   "dependencies": {
     "@cartesia/cartesia-js": "^2.1.10",
     "@deepgram/sdk": "^3.11.2",
-    "@farar/nodes": "^1.2.1",
     "openai": "^4.89.0",
     "@far-analytics/port-peer": "^1.0.0",
     "streams-logger": "^3.0.0",
