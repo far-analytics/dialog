@@ -1,7 +1,7 @@
 {
   "name": "@far-analytics/dialog",
   "version": "1.0.0",
-  "description": "",
+  "description": "A modular framework for building VoIP-Agent applications.",
   "main": "./dist/index.js",
   "scripts": {
     "clean": "rm -rf ./dist/*",
