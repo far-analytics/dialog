@@ -353,7 +353,7 @@ export class TwilioCustomAgent extends OpenAIAgent<TwilioVoIP> {
 
 Dialog provides a simple multithreading implementation you can use. An [example](https://github.com/far-analytics/dialog/tree/main/examples/twilio_voip_openai_agent_threading) is provided that demonstrates a multithreaded deployment.
 
-A `Worker` is spun up for each call. VoIP events are propagated over a `MessageChannel` using the [Port Agent](https://github.com/far-analytics/port-peer) RPC-like facility. This approach ensures that any peculiarity that takes place in handling one call will not interfere with other concurrent calls. Another notable aspect of this approach is that it permits hot changes to the Agent (and the STT and TTS) code without interrupting calls that are already underway — new calls will pick up changes each time a `Worker` is spun up.
+A `Worker` is spun up for each call. VoIP events are propagated over a `MessageChannel` using the [Port Peer](https://github.com/far-analytics/port-peer) RPC-like facility. This approach ensures that any peculiarity that takes place in handling one call will not interfere with other concurrent calls. Another notable aspect of this approach is that it permits hot changes to the Agent (and the STT and TTS) code without interrupting calls that are already underway — new calls will pick up changes each time a `Worker` is spun up.
 
 In the excerpt below, a `TwilioVoIPWorker` is instantiated on each call.
 
